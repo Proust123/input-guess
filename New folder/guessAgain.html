@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GUESS THE NUMBER</title>
+
+    <style>
+
+        *{
+            margin : 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .main{
+            height : 100vh;
+            width : 100%;
+            background-color: rgb(228, 237, 100);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .output{
+            height : 120px;
+            width : 320px;
+            border-radius: 5px;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+        }
+        input{
+            width : 80%;
+            height : 30px;
+            border-radius: 5px;
+        }
+
+        .btn{
+            height : 30px;
+            width : 80px;
+            border : 1px solid;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 16px;
+            background-color: transparent;
+        }
+
+        .replay {
+            height : 40px;
+            width : 150px
+        }
+
+
+
+    </style>
+
+</head>
+<body>
+    
+    <section class = "main">
+
+        <div class = "output">
+            <div class = "message"></div>
+            <input type="number">
+            <button class = "btn">Guess</button>
+        </div>
+
+    </section>
+
+<!-- 
+    <script>
+
+        const game = {min : 1, max : 10}
+        game.message = document.querySelector('.message')
+        game.input = document.querySelector('input')
+        game.btn = document.querySelector('.btn')
+
+        game.btn.addEventListener('click', guessValue)
+        init()
+
+        function guessValue () {
+            if(game.btn.classList.contains('replay')){
+                game.btn.classList.remove('replay')
+                game.input.style.display = 'block'
+                game.btn.innerHTML = 'Guess'
+                init()
+            }else{
+
+                game.guesses++
+                let guessedNum = game.input.value
+                guessedNum = parseInt(guessedNum)
+                game.input.value = ''
+
+                if(isNaN(guessedNum)){
+                    alert('Please enter the number only')
+                }else if(guessedNum === game.randonNum) {
+                    message(`You Guessed the correct Number ${game.randonNum} in ${game.guesses} guesses`, 'yellow')
+                    gameOver()
+                }else{
+                    let holder = (guessedNum > game.randonNum) ? {m : 'Number you entered is large', c : 'purple'} : {m : 'Number you entered is small', c : 'green'}
+                    message(holder.m, holder.c)
+                }
+
+            }
+        }
+
+        function gameOver() {
+            game.btn.classList.add('replay')
+            game.input.style.display = 'none'
+            game.btn.innerHTML = 'Restart Game'
+            game.max += 5
+        }
+
+
+        function init() {
+            game.guesses = 0
+            game.randonNum = ran(game.min, game.max)
+            let tempMsg = `Guess the number between ${game.min} and ${game.max}`
+            message(tempMsg, 'blue')
+        }
+
+        function ran (min, max) {
+            return Math.floor(Math.random() * (max - min + 1) + min)
+        }
+
+        function message(msg, clr){
+            game.message.innerHTML = msg
+            game.message.style.color = clr || 'black'
+            game.input.style.borderColor = clr || 'black'
+            game.btn.style.backgroundColor = clr || 'black'
+            game.btn.style.color = 'white'
+        }
+
+    </script> -->
+
+    <script src="./script.js"></script>
+
+</body>
+</html>
